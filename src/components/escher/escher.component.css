@@ -4,3 +4,7 @@
 .escher-3d-transform-container {
     height: 35em !important;
 }
+.segment-group path.segment{
+    stroke:red !important;
+}
+ 

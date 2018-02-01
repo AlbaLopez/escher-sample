@@ -1,6 +1,7 @@
 import { Component, Input, ElementRef , OnChanges} from '@angular/core';
 import { Builder } from 'escher-vis';
 
+
 @Component({
   selector: 'app-escher',
   templateUrl: './escher.component.html',
@@ -9,10 +10,10 @@ import { Builder } from 'escher-vis';
 export class EscherComponent implements OnChanges {
 
   @Input() data: any;
-
   title: string = '';
   description: string = '';
   builder: any;
+  colorChanged: boolean = false;
 
   constructor(
     private elementRef: ElementRef
@@ -30,5 +31,11 @@ export class EscherComponent implements OnChanges {
       });
     }
   }
-
+  switchColor () {
+   if(this.colorChanged){
+      this.colorChanged = false;
+   }else{
+     this.colorChanged = true;
+   }   
+  }
 }
