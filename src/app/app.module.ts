@@ -5,6 +5,7 @@ import {RouterModule, Routes} from '@angular/router';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from '../components/dashboard/dashboard.component';
 import { FileUploadComponent } from '../components/file-upload/file-upload.component';
+import { EscherComponent } from '../components/escher/escher.component';
 
 const appRoutes: Routes = [
   { path: '', component: DashboardComponent },
@@ -14,7 +15,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     DashboardComponent,
-    FileUploadComponent
+    FileUploadComponent,
+    EscherComponent
   ],
   imports: [
     BrowserModule,

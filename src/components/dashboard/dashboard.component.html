@@ -1,2 +1,9 @@
-<app-file-upload  (onFileUpload)="fileUploaded($event)"></app-file-upload>
-<li *ngFor="let obj of data">{{obj | json}}</li>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <app-file-upload  (onFileUpload)="fileUploaded($event)"></app-file-upload>
+      <app-escher  *ngIf="data" [data]="data"></app-escher>
+    </div>
+  </div>
+</div>
+
