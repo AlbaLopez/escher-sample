@@ -6,10 +6,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-
+  
+  data: any;
   constructor() { }
 
   ngOnInit() {
+  }
+  fileUploaded(file: File): void {
+    const fileReader = new FileReader(); // New instance fileReader
+    fileReader.onload = () => {  // Called when a read operation successfully completes
+      this.data = JSON.parse(fileReader.result);
+    };
+    fileReader.readAsText(file); // For stored the file in this.data after the 'load' event fires
   }
 
 }
