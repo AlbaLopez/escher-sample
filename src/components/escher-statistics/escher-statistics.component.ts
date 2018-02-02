@@ -21,6 +21,7 @@ export class EscherStatisticsComponent implements OnChanges {
   }
 
   nodeCounterMethod(){
+    this.nodeCounter = {};
     for (const i in this.nodes) {
       const node = this.nodes[i];
       (this.nodeCounter[node.node_type]) ? ++this.nodeCounter[node.node_type] : this.nodeCounter[node.node_type] = 1;
@@ -28,6 +29,7 @@ export class EscherStatisticsComponent implements OnChanges {
   }
 
   countGenesReaction() {
+    this.genes = {};
     for (const i in this.reactions) {
       const reaction = this.reactions[i];
       for (const j in reaction.genes) {
@@ -35,8 +37,13 @@ export class EscherStatisticsComponent implements OnChanges {
         (this.genes[gene.name]) ? ++this.genes[gene.name] : this.genes[gene.name] = 1;
       }
     }
-    for (const k in this.genes) {
-      console.log(this.genes[k]);
+    for(const k in this.genes) {
+      const gen = this.genes[k];
+      console.log(gen);
+      if(gen == 1){
+        delete this.genes[k];
+      }
     }
   }
+
 }
