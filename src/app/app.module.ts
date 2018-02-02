@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from '../components/dashboard/dashboard.component';
 import { FileUploadComponent } from '../components/file-upload/file-upload.component';
 import { EscherComponent } from '../components/escher/escher.component';
+import { EscherStatisticsComponent } from '../components/escher-statistics/escher-statistics.component';
 
 const appRoutes: Routes = [
   { path: '', component: DashboardComponent },
@@ -16,7 +17,8 @@ const appRoutes: Routes = [
     AppComponent,
     DashboardComponent,
     FileUploadComponent,
-    EscherComponent
+    EscherComponent,
+    EscherStatisticsComponent
   ],
   imports: [
     BrowserModule,
