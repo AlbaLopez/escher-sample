@@ -1,5 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~escher-vis/css/dist/builder.css';
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
 .green svg.escher-svg .segment{
     stroke:green;
   }
