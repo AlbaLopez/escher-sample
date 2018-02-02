@@ -9,6 +9,8 @@ export class DashboardComponent implements OnInit {
 
   data: any;
   nodes: any;
+  reactions: any;
+
   constructor() { }
 
   ngOnInit() {
@@ -18,6 +20,7 @@ export class DashboardComponent implements OnInit {
     fileReader.onload = () => {  // Called when a read operation successfully completes
         this.data = JSON.parse(fileReader.result);
         this.nodes = this.data[1].nodes;
+        this.reactions = this.data[1].reactions;
     };
     fileReader.readAsText(file); // For stored the file in this.data after the 'load' event fires
   }

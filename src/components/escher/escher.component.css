@@ -7,4 +7,7 @@
 .segment-group path.segment{
     stroke:red !important;
 }
- 
+.switch-color{
+  margin-top: 2%;
+   margin-bottom: 4%;
+ }

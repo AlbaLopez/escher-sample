@@ -1,45 +1,42 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnChanges, OnInit, Pipe, PipeTransform} from '@angular/core';
+
+
 
 @Component({
   selector: 'app-escher-statistics',
   templateUrl: './escher-statistics.component.html',
   styleUrls: ['./escher-statistics.component.css']
 })
-export class EscherStatisticsComponent implements OnInit {
+export class EscherStatisticsComponent implements OnChanges {
 
   @Input() nodes: any;
-  statistics: any = [];
-  nodeCounter: any = [];
+  @Input() reactions: any;
+  nodeCounter: any = {};
+  genes: any = {};
   constructor() { }
 
-  ngOnInit() {
-    this.getStatistics();
-  }
-  getStatistics() {
-    const nodes = this.nodeCounterMethod();
-    const keys = Object.keys(nodes);
-    for(const i in keys) {
-      const key = keys[i];
-      this.statistics.push(nodes[key]);
-    }
+  ngOnChanges() {
+    this.nodeCounterMethod();
+    this.countGenesReaction();
   }
 
   nodeCounterMethod(){
-    for(const i in this.nodes){
+    for (const i in this.nodes) {
       const node = this.nodes[i];
-
-      if (!this.nodeCounter[node.node_type]) {
-        this.nodeCounter[node.node_type] = {
-          name: node.node_type,
-          count: 0,
-          nodesCategory: []
-        };
-      }
-
-      this.nodeCounter[node.node_type].count++;
-      this.nodeCounter[node.node_type].nodesCategory.push(node);
+      (this.nodeCounter[node.node_type]) ? ++this.nodeCounter[node.node_type] : this.nodeCounter[node.node_type] = 1;
     }
-    return this.nodeCounter;
   }
 
+  countGenesReaction() {
+    for (const i in this.reactions) {
+      const reaction = this.reactions[i];
+      for (const j in reaction.genes) {
+        const gene = reaction.genes[j];
+        (this.genes[gene.name]) ? ++this.genes[gene.name] : this.genes[gene.name] = 1;
+      }
+    }
+    for (const k in this.genes) {
+      console.log(this.genes[k]);
+    }
+  }
 }
