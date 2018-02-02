@@ -1,2 +1,14 @@
-<input #inputFile type="file" (change)="fileChange($event)"  placeholder="Upload file"  name="file" id="file" accept="fileType" class="inputfile">
-<label for="file">Choose a file</label>
+<div class="row">
+  <div class="col-md-12">
+    <h2 *ngIf="!fileUploaded">Select a file to upload</h2>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <input #inputFile type="file" (change)="fileChange($event)" placeholder="Upload file" name="file" id="file"
+           accept={{fileType}} class="inputfile">
+    <label *ngIf="!fileUploaded" for="file">Select a file from your computer</label>
+    <label *ngIf="fileUploaded" for="file">Select another file</label>
+  </div>
+</div>
+

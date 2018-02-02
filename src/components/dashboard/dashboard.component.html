@@ -1,18 +1,19 @@
 <div class="container">
-  <div class="row">
+  <div class="row" >
     <div class="col-md-12">
-        <div class="row">
-          <div class="col-md-12">
-            <app-file-upload  (onFileUpload)="fileUploaded($event)"></app-file-upload>
-          </div>
+      <div class="row">
+        <div class="col-md-12">
+          <app-file-upload (onFileUpload)="fileUploaded($event)"></app-file-upload>
         </div>
-        <div class="row">
-          <div class="col-md-7">
-            <app-escher  *ngIf="data" [data]="data"></app-escher>
-          </div>
-          <div class="col-md-5">
-            <app-escher-statistics *ngIf="data" [nodes]="nodes" [reactions]="reactions"></app-escher-statistics>
-          </div>
+      </div>
+      <div class="row">
+        <div class="col-md-7">
+          <app-escher *ngIf="data" [data]="data"></app-escher>
+        </div>
+        <div class="col-md-5">
+          <app-escher-statistics *ngIf="data" [nodes]="nodes" [reactions]="reactions"></app-escher-statistics>
+        </div>
+      </div>
     </div>
   </div>
 </div>

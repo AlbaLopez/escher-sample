@@ -12,9 +12,8 @@ export class EscherComponent implements OnChanges {
   @Input() data: any;
   title: string = '';
   description: string = '';
-  builder: any;
   colorChanged: boolean = false;
-
+  color: string = '';
   constructor(
     private elementRef: ElementRef
   ) { }
@@ -34,8 +33,10 @@ export class EscherComponent implements OnChanges {
   switchColor () {
    if(this.colorChanged){
       this.colorChanged = false;
+     this.color = '';
    }else{
+     this.color = 'green'
      this.colorChanged = true;
-   }   
+   }
   }
 }

@@ -7,7 +7,7 @@
   <div class="col-md-12">
     <h5>List node types</h5>
     <ul>
-      <li *ngFor="let object of nodeCounter | keys"> {{object.key}} {{object.value}}</li>
+      <li *ngFor="let object of nodeCounter | keys">Type <strong>{{object.key}}</strong> has <strong>{{object.value}}</strong> nodes</li>
     </ul>
   </div>
 </div>
@@ -15,7 +15,7 @@
   <div class="col-md-12">
     <h5>Genes that are part of more than one reaction.</h5>
     <ul id="genes">
-      <li *ngFor="let gene of genes | keys ">{{gene.key}} {{gene.value}}</li>
+      <li *ngFor="let gene of genes | keys "><strong>{{gene.key}}</strong> intervenes in <strong>{{gene.value}}</strong> reactions</li>
     </ul>
   </div>
 </div>

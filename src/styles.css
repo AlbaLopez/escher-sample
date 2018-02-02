@@ -5,3 +5,9 @@
 .green svg.escher-svg .segment{
     stroke:green;
   }
+.escher-container{
+  background-color: #ffffff !important;
+}
+svg.escher-svg #canvas{
+  stroke: grey !important;
+}

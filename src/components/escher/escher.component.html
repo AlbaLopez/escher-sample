@@ -1,5 +1,4 @@
 <h2>{{title}}</h2>
-<h5 appSwitchColor>{{description}}</h5>
-<button class="switch-color" (click)="switchColor()">Switch color</button>
+<h5>{{description}}</h5>
+<button [style.backgroundColor]="color" [style.borderColor]="color" class="switch-color btn btn-primary" (click)="switchColor()">Switch color</button>
 <div  class="escher " [ngClass]="{'green': colorChanged == true}"></div>
-

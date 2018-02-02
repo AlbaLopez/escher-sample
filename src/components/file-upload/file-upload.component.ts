@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter, ViewChild } from '@angular/core';
+import {Component, Output, EventEmitter, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-file-upload',
@@ -11,21 +11,18 @@ export class FileUploadComponent {
   @ViewChild('inputFile')
 
   inputFileVariable: any;
-  fileTypes: String = '.json';
+  fileType: String = '.json';
+  fileUploaded: boolean = false;
 
   constructor() {
   }
 
   fileChange(event) {
     if (event.target.files) {
-      if(event.target.files[0].name.includes('.json')){ // Check extension of file
       let fileList: FileList = event.target.files;
       let file: File = fileList[0];
+      this.fileUploaded = true;
       this.onFileUpload.emit(file);
-      }else{  // Alert 
-        this.inputFileVariable.nativeElement.value = "";
-        alert('File extension is not valid, try again with .json')
-      }
     }
   }
 }
