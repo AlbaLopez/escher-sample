@@ -7,6 +7,7 @@ import { DashboardComponent } from '../components/dashboard/dashboard.component'
 import { FileUploadComponent } from '../components/file-upload/file-upload.component';
 import { EscherComponent } from '../components/escher/escher.component';
 import { EscherStatisticsComponent } from '../components/escher-statistics/escher-statistics.component';
+import { KeysPipe } from '../pipes/keys.pipe'; // import our pipe here
 
 const appRoutes: Routes = [
   { path: '', component: DashboardComponent },
@@ -18,7 +19,8 @@ const appRoutes: Routes = [
     DashboardComponent,
     FileUploadComponent,
     EscherComponent,
-    EscherStatisticsComponent
+    EscherStatisticsComponent,
+    KeysPipe
   ],
   imports: [
     BrowserModule,
