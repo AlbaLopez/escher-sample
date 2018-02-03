@@ -8,7 +8,16 @@
   <div class="col-md-12">
     <h5>List node types</h5>
     <ul id="nodes">
-      <li *ngFor="let node of nodeCounter | keys" [ngClass]="{'grey-background': clikedNode == node.key}" (click)="clickNodeFunction(node.key)">Type <strong>{{node.key}}</strong> has <strong>{{node.value.count}}</strong> nodes<div *ngIf="clikedNode == node.key" class="node"><strong>Nodes</strong></div><div class="panel" [hidden]="clikedNode != node.key" *ngFor="let detailnode of node.value.nodes"><li *ngIf="!detailnode.name">{{detailnode.node_id}}</li><li *ngIf="detailnode.name">{{detailnode.name}}</li></div></li>
+      <li *ngFor="let node of nodeCounter | keys" [ngClass]="{'grey-background': clikedNode == node.key}" (click)="clickNodeFunction(node.key)">
+        Type <strong>{{node.key}}</strong> has <strong>{{node.value.count}}</strong> nodes
+        <div *ngIf="clikedNode == node.key" class="node">
+          <strong>Nodes</strong>
+        </div>
+        <div class="panel" [hidden]="clikedNode != node.key" *ngFor="let detailnode of node.value.nodes">
+          <li *ngIf="!detailnode.name">{{detailnode.node_id}}</li>
+          <li *ngIf="detailnode.name">{{detailnode.name}}</li>
+        </div>
+      </li>
     </ul>
   </div>
 </div>
@@ -16,7 +25,15 @@
   <div class="col-md-12">
     <h5>Genes that are part of more than one reaction.</h5>
     <ul id="genes">
-      <li  *ngFor="let gene of genes | keys" [ngClass]="{'grey-background': clikedGene == gene.key}" (click)="clickGeneFunction(gene.key)"><strong>{{gene.key}}</strong> intervenes in <strong>{{gene.value.count}}</strong> reactions<div *ngIf="clikedGene == gene.key" class="reaction"><strong>Reactions</strong></div><div class="panel" [hidden]="clikedGene != gene.key" *ngFor="let reaction of gene.value.reactions"><li>{{reaction.name}}</li></div></li>
+      <li  *ngFor="let gene of genes | keys" [ngClass]="{'grey-background': clikedGene == gene.key}" (click)="clickGeneFunction(gene.key)">
+        <strong>{{gene.key}}</strong> intervenes in <strong>{{gene.value.count}}</strong> reactions
+        <div *ngIf="clikedGene == gene.key" class="reaction">
+          <strong>Reactions</strong>
+        </div>
+        <div class="panel" [hidden]="clikedGene != gene.key" *ngFor="let reaction of gene.value.reactions">
+          <li>{{reaction.name}}</li>
+        </div>
+      </li>
     </ul>
   </div>
 </div>

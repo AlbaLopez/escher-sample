@@ -19,8 +19,8 @@ export class FileUploadComponent {
 
   fileChange(event) {
     if (event.target.files) {
-      let fileList: FileList = event.target.files;
-      let file: File = fileList[0];
+      const fileList: FileList = event.target.files;
+      const file: File = fileList[0];
       this.fileUploaded = true;
       this.onFileUpload.emit(file);
     }

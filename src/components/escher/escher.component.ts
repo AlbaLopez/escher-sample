@@ -30,12 +30,13 @@ export class EscherComponent implements OnChanges {
       });
     }
   }
+
   switchColor () {
-   if(this.colorChanged){
+   if (this.colorChanged) {
       this.colorChanged = false;
      this.color = '';
-   }else{
-     this.color = 'green'
+   } else {
+     this.color = 'green';
      this.colorChanged = true;
    }
   }
