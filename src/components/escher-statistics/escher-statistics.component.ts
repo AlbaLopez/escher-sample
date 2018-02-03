@@ -13,6 +13,9 @@ export class EscherStatisticsComponent implements OnChanges {
   @Input() reactions: any;
   nodeCounter: any = {};
   genes: any = {};
+  clikedGene: string = '';
+  clikedNode: string = '';
+
   constructor() { }
 
   ngOnChanges() {
@@ -24,7 +27,9 @@ export class EscherStatisticsComponent implements OnChanges {
     this.nodeCounter = {};
     for (const i in this.nodes) {
       const node = this.nodes[i];
-      (this.nodeCounter[node.node_type]) ? ++this.nodeCounter[node.node_type] : this.nodeCounter[node.node_type] = 1;
+      (this.nodeCounter[node.node_type]) ? ++this.nodeCounter[node.node_type].count : this.nodeCounter[node.node_type] = {
+        count: 1, nodes: []};
+      this.nodeCounter[node.node_type].nodes.push(node);
     }
   }
 
@@ -34,15 +39,31 @@ export class EscherStatisticsComponent implements OnChanges {
       const reaction = this.reactions[i];
       for (const j in reaction.genes) {
         const gene = reaction.genes[j];
-        (this.genes[gene.name]) ? ++this.genes[gene.name] : this.genes[gene.name] = 1;
+        (this.genes[gene.name]) ? ++this.genes[gene.name].count : this.genes[gene.name] = {count: 1, reactions: []};
+        this.genes[gene.name].reactions.push(reaction);
       }
     }
     for(const k in this.genes) {
-      const gen = this.genes[k];
-      console.log(gen);
+      const gen = this.genes[k].count;
       if(gen == 1){
         delete this.genes[k];
       }
+    }
+  }
+
+  clickGeneFunction(clicked) {
+    if (clicked == this.clikedGene) {
+      this.clikedGene = '';
+    }else{
+      this.clikedGene  = clicked;
+    }
+  }
+
+  clickNodeFunction(clicked) {
+    if (clicked == this.clikedNode) {
+      this.clikedNode = '';
+    } else {
+      this.clikedNode  = clicked;
     }
   }
 

@@ -2,17 +2,30 @@ ul{
   list-style: none;
 }
 
-ul#genes{
-  columns: 2;
-  -webkit-columns: 2;
-  -moz-columns: 2;
-}
-ul#genes > li {
-  -webkit-column-break-inside: avoid;
-  page-break-inside: avoid;
-  break-inside: avoid;
+ul#genes > li,
+ul#nodes > li{
   font-size: 13.5px;
+  cursor: pointer;
 }
-ul#genes > li:hover {
+
+ul#genes > li:hover,
+ul#nodes > li:hover {
+  color: mediumblue;
+
+}
+
+.reaction,
+.node{
+  margin-left: .5em;
+}
+
+.panel  > li{
+  list-style: circle;
+  margin-left: 2em;
+  cursor: pointer;
+}
+
+.grey-background{
+  border: 1px solid #000000;
   background: #E6E6E6;
 }

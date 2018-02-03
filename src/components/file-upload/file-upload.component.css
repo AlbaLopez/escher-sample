@@ -19,7 +19,7 @@
 
 .inputfile:focus + label,
 .inputfile + label:hover {
-  background-color: royalblue;
+  background-color: #334E75;
 }
 .inputfile + label {
   cursor: pointer; /* "hand" cursor */
